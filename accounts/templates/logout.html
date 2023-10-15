@@ -1,0 +1,22 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+{% block content %}
+<div>
+    <h2>You were logged out...</h2>
+    <h3>Thank for visiting MealsMatter</h3>
+    <div>
+        <p><a href="{% url 'login' %}">Want to Login?</a> </p>
+    </div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>
