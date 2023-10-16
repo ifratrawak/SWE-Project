@@ -9,20 +9,26 @@
 <body>
 
 {% block content %}
+{% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static "home.css" %}">
 
-<h1>Welcome to Meals Matter <br><br></h1><h2>A Food Donation &<br>Redistribution Network</h2>
 
-<div class="mt-5 mb-5">
+    <div class="boxy">
+        <h1>WELCOME TO MEALS MATTER <br><br></h1><h2>A Food Donation &<br>Redistribution Network</h2>
+    </div>
+<div class="boxy2">
 <h2>What do you want to become? </h2>
 </div>
 
+    <div class="boxy3">
    <div class="row">
   <div class="col-sm-3 mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><strong>Donor</strong></h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Become a Donor</a>
+        <a href="{% url 'doner-reg' %}" class="btn btn-primary">Become a Donor</a>
       </div>
     </div>
   </div>
@@ -45,7 +51,7 @@
     </div>
   </div>
 </div>
-
+</div>
 {% endblock %}
 
 </body>
