@@ -45,6 +45,13 @@ def update_shop(request, s_id):
     return render(request, 'form.html', {
         'form':form
     })
+
+def view_shops(request):
+    stores = Store.objects.all()
+    return render(request, 'store.html',{
+        'stores':stores
+    })
+
 from django.shortcuts import render, redirect
 
 
