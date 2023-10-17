@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>store</title>
+</head>
+<body>
+{% block content %}
+<a href="{% url 'create-shop' %}">Add new Shop</a>
+    {% for s in stores %}
+    Shop {{ s.id }} <br>
+    Name: {{ s.name }} <br>
+    Location: {{ s.location }} <br>
+    Owner: {{ s.owner }} <br>
+    Photo: {{ s.photo }} <br>
+        <br><br>
+        <a href="{% url 'update-shop' s.id %}">Update Shop</a> <br>
+        <a href="{% url 'delete-shop' s.id %}">Delete Shop</a> <br>
+
+
+    {% endfor %}
+
+{% endblock %}
+
+</body>
+</html>
