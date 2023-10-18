@@ -10,7 +10,7 @@ class ShopCreationForm(forms.ModelForm):
            'name',
             'location',
             'owner',
-            'photo',
+
         ]
 
 class ShopUpdationForm(forms.ModelForm):
@@ -20,5 +20,4 @@ class ShopUpdationForm(forms.ModelForm):
              'name',
             'location',
             'owner',
-            'photo',
                 ]

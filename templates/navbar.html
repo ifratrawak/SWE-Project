@@ -48,6 +48,12 @@
         <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
       </li>
 
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'store-profile' %}">View My Store</a>
+      </li>
+        {% endif %}
+
     </ul>
       <ul class="navbar-nav mr-right">
 
@@ -60,8 +66,6 @@
           <li class="mr-3">
               <a  href="{% url 'login' %}" class="btn btn-outline-primary">Log In</a>
           </li>
-
-
 
 
           <li class="mr-3">

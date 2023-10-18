@@ -2,7 +2,8 @@ from django.shortcuts import render
 from stores.models import Store
 from django.http import HttpResponse
 from .import forms
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -16,6 +17,8 @@ from .import forms
 
 
 def create_shop(request):
+
+
     if request.method== 'GET':
         form = forms.ShopCreationForm(request.GET)
 
@@ -30,6 +33,9 @@ def create_shop(request):
     return render(request, 'form.html', {
         'form':form
     })
+
+
+
 def update_shop(request, s_id):
     store = Store.objects.get(pk =s_id)
     if request.method == 'GET':
@@ -59,3 +65,8 @@ def delete_shop(request, s_id):
     Store.objects.get(pk=s_id).delete()
 
     return redirect('/')
+
+def store_profile(request):
+    return render(request, 'store_profile.html', {
+
+    })

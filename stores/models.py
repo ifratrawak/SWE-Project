@@ -11,7 +11,7 @@ class Store(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(choices=locations, max_length=100)
     owner = models.OneToOneField(User, default=None, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='pics/stores', default=None)
+
 
     def __str__(self):
         return self.name

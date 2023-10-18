@@ -7,16 +7,31 @@
 </head>
 <body>
 {% block content %}
+
+{% if user.is_authenticated %}
 <a href="{% url 'create-shop' %}">Add new Shop</a>
+{% else %}
+<a href="{% url 'login' %}">Add new Shop</a>
+{% endif %}
+
     {% for s in stores %}
+
+        <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ s.name }}</h5>
+    <p class="card-text">Location: {{ s.location }}, Owner: {{ s.owner }} </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
     Shop {{ s.id }} <br>
     Name: {{ s.name }} <br>
     Location: {{ s.location }} <br>
     Owner: {{ s.owner }} <br>
-    Photo: {{ s.photo }} <br>
+
         <br><br>
-        <a href="{% url 'update-shop' s.id %}">Update Shop</a> <br>
-        <a href="{% url 'delete-shop' s.id %}">Delete Shop</a> <br>
+
 
 
     {% endfor %}
