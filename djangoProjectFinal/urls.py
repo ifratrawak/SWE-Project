@@ -28,10 +28,10 @@ urlpatterns = [
     path('donations/', include('donations.urls')),
     path('stores/', include('stores.urls')),
 
+    path('nav1/', views.nav1, name="nav1"),
 
 ]
 
-
-urlpatterns = urlpatterns+ static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
-urlpatterns = urlpatterns+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()

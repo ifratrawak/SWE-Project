@@ -1,0 +1,29 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+{% block content %}
+
+
+    {% if searched %}
+        <h1>You Searched for {{ searched }}</h1>
+        <br>
+
+        {% for s in stores %}
+
+            <img src="{{ s.store_img.url }}" height="150px" width="150px">
+            <h3><a href="{% url 'all-stores' %}">{{ s }} -- {{ s.location }}</a></h3>
+        {% endfor %}
+    {% else %}
+        <h1>You forgot to search for a store! </h1>
+    {% endif %}
+
+{% endblock %}
+
+</body>
+</html>

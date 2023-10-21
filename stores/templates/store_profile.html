@@ -8,17 +8,32 @@
 <body>
 
 {% block content %}
+    {% if user.is_authenticated %}
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+{% for s in store %}
+  <div class="card mb-3 text-center">
+    <div class="card-header">
+        <h2>YOUR STORE</h2><br>
+        <p>{{ store.id }}</p>
+        <p>Logged in As: {{ user }}</p>
+        <p>Store owner: {{ store.owner }}</p>
+  </div>
+  <center><img  src="{{ store.store_img.url }}" height="250px" width="300px" alt="Card image cap"></center>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+    <h3 class="card-title"><strong>{{ store }}</strong></h3>
+    <p class="card-text">Located in {{ store.location }}</p>
+      <a href="#" class="btn btn-primary">Visit Shop</a>
+
+  </div>
+<div class="card-footer text-muted">
+    2 days ago
   </div>
 </div>
      <a href="#" class="btn btn-primary">Update My Shop</a>
-
+    {% endfor %}
+    {% endif %}
 {% endblock %}
 </body>
 </html>

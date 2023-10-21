@@ -9,3 +9,8 @@ def home(request):
 
     })
 
+def nav1(request):
+
+    return render(request, 'nav1.html',{
+
+    })

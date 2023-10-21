@@ -127,6 +127,7 @@ STATICFILES_DIRS = [
 ]
 # need these lines to access static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

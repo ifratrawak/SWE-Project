@@ -1,0 +1,76 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css"
+          href="{% static "all_store.css" %}">
+
+<h1>Stores:</h1>
+<div class="mybox1">
+{#    <h1>Stores: </h1>#}
+<ul>
+    {% for store in stores_list %}
+        <br>
+
+
+    <div class="card mb-3 text-center">
+    <div class="card-header">
+    Featured
+  </div>
+  <center><img  src="{{ store.store_img.url }}" height="250px" width="300px" alt="Card image cap"></center>
+  <div class="card-body">
+
+
+    <h3 class="card-title"><strong>{{ store }}</strong></h3>
+    <p class="card-text">Located in {{ store.location }}</p>
+      <a href="#" class="btn btn-primary">Visit Shop</a>
+
+  </div>
+<div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+{#<div class="card">#}
+{#  <div class="card-body">#}
+{#    <h5 class="card-title">Card title</h5>#}
+{#    <p class="card-text">Located in {{ store.location }}</p>#}
+{#    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>#}
+{#  </div>#}
+{#  <img class="card-img-bottom" src="..." alt="Card image cap">#}
+{#</div>#}
+
+
+
+
+
+
+        <div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h3 class="card-title"><strong>{{ store }}</strong></h3>
+    <h5 class="card-text">Located in {{ store.location }}</h5><br>
+    <a href="#" class="btn btn-primary">Visit Shop</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+    {% endfor %}
+
+</ul>
+
+</div>
+{% endblock %}
+
+</body>
+</html>
