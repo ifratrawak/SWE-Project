@@ -1,39 +1,27 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from volunteers.forms import VolunteerRegForm, WebUserForm
+from volunteers.forms import VolunteerRegForm
 from . import forms
-from .models import WebUser
 
 
 # Create your views here.
 
 def volunteer_reg(request):
     if request.method == 'POST':
-        user = WebUser.objects.get(user=request.user)
-        form = forms.VolunteerRegForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
+        user =User.objects.get(user=request.user)
+        vol_form = forms.VolunteerRegForm(request.POST, request.FILES)
+        if vol_form.is_valid():
+            volunteer=vol_form.save(commit=False)
+            volunteer.user=request.user
+            volunteer.save()
+
 
             return redirect('/')
 
     else:
-        form = forms.VolunteerRegForm()
-
-    return render(request, 'form.html',{
-        'form':form
-    })
-
-def webuser_reg(request):
-    if request.method == 'POST':
-        user = WebUser.objects.get(user=request.user)
-        form = forms.WebUserForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-
-            return redirect('/')
-
-    else:
-        form = forms.WebUserForm()
+        vol_form = forms.VolunteerRegForm(request.POST, request.FILES)
 
     return render(request, 'volunteer_reg.html',{
-        'form':form
+        'vol_form':vol_form
     })
+
