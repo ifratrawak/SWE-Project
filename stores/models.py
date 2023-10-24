@@ -17,3 +17,30 @@ class Store(models.Model):
 
     def __str__(self):
         return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class Customer(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    phone = models.EmailField(max_length=11)
+    email = models.EmailField(max_length=50)
+    password = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    description = models.CharField(max_length=250, default='', blank=True, null=True)
+    image = models.ImageField(upload_to='images/products/')
+
+    def __str__(self):
+        return self.name
+
+

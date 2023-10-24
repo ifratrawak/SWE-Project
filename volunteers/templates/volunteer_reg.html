@@ -1,0 +1,62 @@
+
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+
+    <h2>Register as a Volunteer: </h2> <br><br>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <form  method="post" enctype=
+            "multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"> {{ form.name.label_tag}}</th>
+            <th scope="col"> {{ form.name}}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ form.location.label_tag}}</th>
+            <th scope="col"> {{ form.location}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ form.phone.label_tag}}</th>
+            <th scope="col"> {{ form.phone}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ form.address.label_tag}}</th>
+            <th scope="col"> {{ form.address}}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ form.gender.label_tag}}</th>
+            <th scope="col"> {{ form.gender}}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ form.photo.label_tag}}</th>
+            <th scope="col"> {{ form.photo}}</th>
+        </tr>
+
+        </thead>
+
+    </table>
+
+
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

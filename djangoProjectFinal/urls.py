@@ -27,8 +27,10 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('donations/', include('donations.urls')),
     path('stores/', include('stores.urls')),
+    path('volunteers/', include('volunteers.urls')),
 
     path('nav1/', views.nav1, name="nav1"),
+
 
 ]
 

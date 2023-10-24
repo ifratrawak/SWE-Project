@@ -1,0 +1,80 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+
+{% if profile %}
+
+  <div class="container ">
+    <div class="row">
+        <div class="col-10">
+            <h1>{{ profile.user.username }}'s Profile</h1>
+        </div>
+
+        {% if request.user.id == profile.user.id %}
+        <div class="col-8">
+            <a href="{% url 'update-profile' %}" class="btn btn-outline-secondary">
+                Update Profile
+            </a>
+            <br><br>
+            <br><br>
+
+        </div>
+
+        {% endif %}
+    <div class="col-10">
+        <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Username: </th>
+      <th scope="col">{{ profile.user.username }}</th>
+
+    </tr>
+    <tr>
+      <th scope="col">First Name: </th>
+      <th scope="col">{{ profile.user.first_name }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Last Name: </th>
+      <th scope="col">{{ profile.user.last_name }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Email: </th>
+      <th scope="col">{{ profile.user.email }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Phone: </th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+</table>
+
+    </div>
+        <div class="col-2">
+            <br><br><br>
+
+            {% if profile.profile_image %}
+               <img class="rounded" src="{{ profile.profile_image.url }}" height="250px" width="250px">
+            {% endif %}
+
+        </div>
+    </div>
+
+
+  </div>
+
+    <br><br>
+
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

@@ -73,6 +73,10 @@
           </li>
 
           <li class="mr-3">
+              <a href="{% url 'profile' request.user.id %}" class="btn btn-outline-danger">Profile</a>
+          </li>
+
+          <li class="mr-3">
               <a  href="{% url 'logout' %}" class="btn btn-outline-primary">Log Out</a>
           </li>
 
@@ -83,9 +87,11 @@
 
 
           <li class="mr-3">
-              <a href="{% url 'register' %}" class="btn btn-outline-danger">Sign Up</a>
+              <a href="{% url 'register1' %}" class="btn btn-outline-danger">Sign Up</a>
           </li>
             {% endif %}
+
+
 
 
 

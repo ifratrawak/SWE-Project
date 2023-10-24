@@ -1,25 +1,39 @@
 .boxy{
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     padding : 10px;
-    font-family: Andale Mono, Monospace;
+    font-family: "Gill Sans MT";
     text-align: center;
-    margin: auto;
-    width: 80%;
-    background-color: beige;
+    /*margin: auto;*/
+    /*width: 80%;*/
+    /*background-image: url('/media/images/frontend/rm218-bb-07.jpg');*/
+    background-size: cover;
+
 }
 .boxy2{
 
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     text-align: center;
     padding: 10px;
-    background-color: lightskyblue;
-    margin: 100px auto auto;
+    background-color: lightslategray;
+    margin: auto auto auto;
     width: 80%;
 }
 
 .boxy3{
 
-    margin-top: 4rem;
+    margin-top: 4rem ;
     align-items: center;
+    padding: 20px;
 
+}
+
+.bgcustom{
+    background-image: url('/media/images/frontend/rm218-bb-07.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    margin:auto;
+    padding: 0;
 }
