@@ -7,10 +7,15 @@ class VolunteerRegForm(forms.ModelForm):
     class Meta:
         model = Volunteer
         fields = [
-            'user',
+            'volunteer',
             'is_available',
             'store',
-
         ]
 
-
+class VolunteerRegFormUser(forms.ModelForm):
+    class Meta:
+        model = Volunteer
+        fields = [
+            'is_available',
+            'store'
+        ]

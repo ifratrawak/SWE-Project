@@ -16,7 +16,7 @@ sex = [('Male','Male'), ('Female', 'Female')]
 
 
 class Volunteer(models.Model):
-    user=models.OneToOneField(User,default=None,on_delete=models.CASCADE)
+    volunteer=models.OneToOneField(User,default=None,on_delete=models.CASCADE)
     store=models.ForeignKey(Store,default=None,on_delete=models.CASCADE)
     is_available=models.BooleanField(default=True)
 

@@ -19,10 +19,13 @@
 
         {% if request.user.id == profile.user.id %}
         <div class="col-8">
-            <a href="{% url 'update-profile' %}" class="btn btn-outline-secondary">
-                Update Profile
+            <a href="{% url 'edit-profile' request.user.profile.id%}" class="btn btn-outline-secondary">
+                Update Profile Info
             </a>
             <br><br>
+            <a href="{% url 'update-profile' %}" class="btn btn-outline-secondary">
+                Update Profile Settings
+            </a>
             <br><br>
 
         </div>
@@ -51,7 +54,15 @@
     </tr>
     <tr>
       <th scope="col">Phone: </th>
-      <th scope="col"></th>
+      <th scope="col">{{ profile.phone }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Address: </th>
+      <th scope="col">{{ profile.address }}</th>
+    </tr>
+    <tr>
+      <th scope="col">Bio: </th>
+      <th scope="col">{{ profile.bio }}</th>
     </tr>
   </thead>
 

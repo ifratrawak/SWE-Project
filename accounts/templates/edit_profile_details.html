@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <h1>Edit Profile: </h1>
+        <br><br>
+
+    <div class="form-group">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">
+            Edit Profile Page
+        </button>
+        </form>
+    </div>
+
+    {% else %}
+        <h3>Not allowed!</h3>
+
+
+    {% endif %}
+
+{% endblock %}
+
+
+</body>
+</html>

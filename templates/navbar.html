@@ -71,10 +71,25 @@
           <li class="mr-3">
               <a  href="" class="btn btn-primary">{{ user }}</a>
           </li>
+              <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'edit-profile' request.user.profile.id %}">Update Profile Info</a>
+          <a class="dropdown-item" href="{% url 'update-profile' %}">Update Profile Settings</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'profile' request.user.id %}">View Profile</a>
 
-          <li class="mr-3">
-              <a href="{% url 'profile' request.user.id %}" class="btn btn-outline-danger">Profile</a>
-          </li>
+        </div>
+      </li>
+
+{#          <li class="mr-3">#}
+{#              <a href="{% url 'profile' request.user.id %}" class="btn btn-outline-danger">Profile</a>#}
+{#          </li>#}
+{#          <li class="mr-3">#}
+{#              <a href="{% url 'edit-profile' request.user.profile.id %}" class="btn btn-outline-danger">Edit Profile</a>#}
+{#          </li>#}
 
           <li class="mr-3">
               <a  href="{% url 'logout' %}" class="btn btn-outline-primary">Log Out</a>

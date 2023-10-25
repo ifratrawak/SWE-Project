@@ -2,7 +2,11 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .forms import UserRegisterForm, SignUpForm, ProfilePicForm
+from django.urls import reverse_lazy
+from django.views import generic
+from django.views.generic import DetailView
+
+from .forms import UserRegisterForm, SignUpForm, EditProfileForm, ProfilePicForm
 from django.contrib import messages
 
 from .models import Profile
@@ -26,7 +30,8 @@ def register(request):
         'form': form
     })
 
-#new reg function
+
+# new reg function, currently using this to register. previous function is not used
 def register_user(request):
     form = SignUpForm()
     if request.method == "POST":
@@ -35,7 +40,7 @@ def register_user(request):
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            #login user:
+            # login user:
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "Registered successfully! Welcome")
@@ -45,8 +50,8 @@ def register_user(request):
             return redirect('register1')
 
     else:
-        return render(request, 'register1.html',{
-            'form':form
+        return render(request, 'register1.html', {
+            'form': form
         })
 
 
@@ -87,32 +92,37 @@ def profile(request, pk):
         messages.success(request, "You must be logged in")
         return redirect('home')
 
+# function to edit name,username,email,password,photo
 def update_profile(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        profile_user = Profile.objects.get(user_id=request.user.id)
 
-        if request.user.is_authenticated:
-            current_user = User.objects.get(id=request.user.id)
-            profile_user = Profile.objects.get(user_id=request.user.id)
+        user_form = EditProfileForm(request.POST or None, request.FILES or None, instance=current_user)
+        profile_form = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
 
-            user_form = SignUpForm(request.POST or None, request.FILES or None, instance=current_user)
-            profile_form = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
 
-            if user_form.is_valid() and profile_form.is_valid():
-                user_form.save()
-                profile_form.save()
-
-                login(request, current_user)
-                messages.success(request, "Your Profile has been Updated")
-                return redirect('home')
-            return render(request, 'update_profile.html', {
-                'user_form': user_form,
-                'profile_form': profile_form
-            })
-
-        else:
-            messages.success(request, "You must be logged in!")
+            login(request, current_user)
+            messages.success(request, "Your Profile has been Updated")
             return redirect('home')
+        return render(request, 'update_profile.html', {
+            'user_form': user_form,
+            'profile_form': profile_form
+        })
+
+    else:
+        messages.success(request, "You must be logged in!")
+        return redirect('home')
 
 
-
-
-
+# function to edit phone,address,bio etc
+class EditProfileView(generic.UpdateView):
+    model = Profile
+    template_name = 'edit_profile_details.html'
+    fields = [
+        'bio', 'phone', 'address',
+    ]
+    success_url = reverse_lazy('home')

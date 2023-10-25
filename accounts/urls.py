@@ -10,4 +10,6 @@ urlpatterns = [
     path('register1/', user_views.register_user, name='register1'),
     path('profile/<int:pk>', user_views.profile, name='profile'),
     path('update-profile/', user_views.update_profile, name='update-profile'),
+    # for editing phone,address,bio etc
+    path('edit-profile/<int:pk>', user_views.EditProfileView.as_view(), name='edit-profile'),
 ]
