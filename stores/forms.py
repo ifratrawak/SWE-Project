@@ -1,6 +1,7 @@
 from django import forms
 
-from stores.models import Store
+from stores.models import Store, Product
+
 
 # admin superuser createform
 class ShopCreationForm(forms.ModelForm):
@@ -43,4 +44,37 @@ class ShopUpdationFormUser(forms.ModelForm):
             'name',
             'location',
             'store_img'
+        ]
+
+class ProductCreationFormUser(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            'name',
+            'category',
+            'quantity',
+            'description',
+            'image'
+        ]
+
+class ProductCreationFormAdmin(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            'store',
+            'name',
+            'category',
+            'quantity',
+            'description',
+            'image'
+        ]
+class ProductUpdationFormUser(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            'name',
+            'category',
+            'quantity',
+            'description',
+            'image'
         ]

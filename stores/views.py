@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from stores.models import Store
+from stores.models import Store, Product
 from django.http import HttpResponse
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -47,8 +47,9 @@ def create_store(request):
         'form': form
     })
 
-#not using update_store() function
-#instead we are using upd_store() function. Scroll down to see it
+
+# not using update_store() function
+# instead we are using upd_store() function. Scroll down to see it
 def update_store(request, s_id):
     store = Store.objects.get(pk=s_id)
     if request.method == 'GET':
@@ -88,7 +89,8 @@ def store_profile(request, s_id):
         'store': store
     })
 
-#using this upd_store() function to update store info
+
+# using this upd_store() function to update store info
 def upd_store(request, s_id):
     store = Store.objects.get(pk=s_id)
     if request.user.is_superuser:
@@ -128,3 +130,83 @@ def search_stores(request):
         return render(request, 'search_stores.html', {
 
         })
+
+
+# view all products of all the stores
+def all_products(request):
+    products = Product.objects.all()
+    return render(request, 'all_products.html', {
+        'products': products
+    })
+
+
+def my_products(request):
+    store = Store.objects.all()
+    product = Product.objects.all()
+    return render(request, 'my_products.html', {
+        'product': product,
+        'store': store
+    })
+
+
+def my_store(request):
+    store = Store.objects.all()
+    return render(request, 'my_store.html', {
+        'store': store
+    })
+
+
+def add_product(request, s_id):
+    store = Store.objects.get(pk=s_id)
+    if request.method == 'POST':
+
+        # if request.user.is_superuser:
+        #     prod_form = forms.ShopCreationForm(request.POST, request.FILES)
+        #     if prod_form.is_valid():
+        #         prod_form.save()
+        #
+        #         return redirect('/stores/view-shops/')
+        # else:
+        prod_form = forms.ProductCreationFormUser(request.POST, request.FILES)
+
+        if prod_form.is_valid():
+            product = prod_form.save(commit=False)
+            product.store = store  # product created under current store
+            product.save()
+
+            return redirect('/stores/my-products/')
+
+    else:
+        # just going to page, not submitting
+        # if request.user.is_superuser:
+        #     prod_form = forms.ShopCreationForm(request.POST, request.FILES)
+        # else:
+        prod_form = forms.ProductCreationFormUser(request.POST, request.FILES)
+
+    return render(request, 'add_product.html', {
+        'prod_form': prod_form,
+        'store': store
+    })
+
+
+def upd_product(request, s_id, p_id):
+    store = Store.objects.get(pk=s_id)
+    product = Product.objects.get(pk=p_id)
+
+    prod_form = forms.ProductUpdationFormUser(request.POST or None, request.FILES or None, instance=product)
+
+    if prod_form.is_valid():
+        prod_form.save()
+        return redirect('/stores/my-products/')
+
+    return render(request, 'upd_product.html', {
+        'prod_form': prod_form,
+        'store': store,
+        'product': product
+    })
+
+def delete_product(request, s_id, p_id):
+    store = Store.objects.get(pk=s_id)
+    product = Product.objects.get(pk=p_id)
+    product.delete()
+    return redirect('/stores/my-products')

@@ -1,0 +1,54 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+<h2>Update Product: </h2> <br><br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <form  method="post" enctype=
+            "multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"> {{ prod_form.name.label_tag}}</th>
+            <th scope="col"> {{ prod_form.name}}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ prod_form.category.label_tag}}</th>
+            <th scope="col"> {{ prod_form.category}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ prod_form.quantity.label_tag}}</th>
+            <th scope="col"> {{ prod_form.quantity}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ prod_form.description.label_tag}}</th>
+            <th scope="col"> {{ prod_form.description}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ prod_form.image.label_tag}}</th>
+            <th scope="col"> {{ prod_form.image}}</th>
+        </tr>
+
+
+        </thead>
+
+    </table>
+
+
+<button class="btn btn-primary" type="submit">Update</button>
+</form>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

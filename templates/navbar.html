@@ -52,16 +52,19 @@
         {% if user.is_authenticated %}
         <li class="nav-item">
         <a class="nav-link" href="{% url 'create-store' %}">Create Store</a>
-      </li>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'my-store' %}">View My Store</a>
+        </li>
          {% else %}
           <li class="nav-item">
         <a class="nav-link" href="{% url 'login' %}">Create Store</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="">View My Store</a>
-      </li>
-        {% endif %}
+        </li>
 
+        {% endif %}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'all-products' %}">View Products</a>
+        </li>
     </ul>
       <ul class="navbar-nav mr-right">
 

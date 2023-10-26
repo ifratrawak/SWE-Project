@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1>My Store</h1>
+    {% for s in store %}
+        {% if s.owner == request.user %}
+        <h1>This is your store!</h1>
+            {{ s.name }}
+            {{ s.location }}
+
+            <div class="card mb-3 text-center">
+    <div class="card-header">
+    Featured
+  </div>
+  <center><img  src="{{ s.store_img.url }}" height="250px" width="300px" alt="Card image cap"></center>
+  <div class="card-body">
+
+
+    <h3 class="card-title"><strong>{{ s.name }}</strong></h3>
+    <p class="card-text">Located in {{ s.location }}</p>
+      <a href="{% url 'my-products' %}" class="btn btn-primary">Visit Shop</a>
+      <br><br>
+      <a href="{% url 'upd-store' s.id %}" class="btn btn-primary">Update Shop Info</a>
+
+  </div>
+<div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
+</body>
+</html>
