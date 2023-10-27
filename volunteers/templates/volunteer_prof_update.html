@@ -1,0 +1,52 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+    <header class="py-5 bg-dark text-white border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Volunteer Profile Update</h1>
+                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <br><br>
+                </div>
+            </div>
+</header>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <form  method="post" enctype=
+            "multipart/form-data">
+    {% csrf_token %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"> {{ vol_form.store.label_tag}}</th>
+            <th scope="col"> {{ vol_form.store }}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ vol_form.is_available.label_tag}}</th>
+            <th scope="col"> {{ vol_form.is_available }}</th>
+        </tr>
+
+
+        </thead>
+
+    </table>
+
+
+<button class="btn btn-primary" type="submit">Update</button>
+</form>
+</div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

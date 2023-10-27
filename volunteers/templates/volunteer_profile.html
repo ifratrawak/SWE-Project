@@ -1,0 +1,71 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+{% block content %}
+<header class="py-5 bg-dark text-white border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Volunteer Profile Page</h1>
+                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <br><br>
+                </div>
+            </div>
+</header>
+{% for v in volunteer %}
+    {% if user.is_authenticated %}
+
+            {% if v.volunteer == request.user %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h1 class="fw-bold text-center">{{ v.volunteer.username }}'s Volunteer Profile</h1>
+        </div>
+
+
+    <div class="col-lg-10">
+                <br><br><br>
+        <table class="table">
+         <thead>
+            <tr>
+            <th scope="col"><h4>Username: </h4></th>
+            <th scope="col"><h4>{{ v.volunteer.username }}</h4></th>
+            </tr>
+
+            <tr>
+                <th scope="col"><h4>Store Volunteering for: </h4></th>
+                <th scope="col"><h4>{{ v.store }}</h4></th>
+            </tr>
+
+            <tr>
+                <th scope="col"><h4>Availability Status: </h4></th>
+                <th scope="col"><h4>{{ v.is_available }}</h4></th>
+            </tr>
+
+
+         </thead>
+
+         </table>
+        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-profile-update' v.id %}">Update Profile</a></p>
+        <br>
+        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-orders' v.store.id v.id %}">Request to volunteer Order</a></p>
+    </div>
+
+
+  </div>
+</div>
+            {% endif %}
+{% endif %}
+{% endfor %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from stores.models import Store, Product
+from stores.models import Store, Product, Order
 from django.http import HttpResponse
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 
-from .forms import ShopUpdationForm, ShopCreationFormUser, ShopUpdationFormUser
+from .forms import ShopUpdationForm, ShopCreationFormUser, ShopUpdationFormUser, OrderCreationFormUser
 
 
 # Create your views here.
@@ -18,6 +18,7 @@ from .forms import ShopUpdationForm, ShopCreationFormUser, ShopUpdationFormUser
 
 
 def create_store(request):
+
     if request.method == 'POST':
 
         if request.user.is_superuser:
@@ -43,8 +44,9 @@ def create_store(request):
         else:
             form = forms.ShopCreationFormUser(request.POST, request.FILES)
 
-    return render(request, 'form.html', {
-        'form': form
+    return render(request, 'create_store.html', {
+        'form': form,
+
     })
 
 
@@ -210,3 +212,38 @@ def delete_product(request, s_id, p_id):
     product = Product.objects.get(pk=p_id)
     product.delete()
     return redirect('/stores/my-products')
+
+def my_store_orders(request, s_id, p_id):
+    orders = Order.objects.all()
+
+    products = Product.objects.get(pk=s_id)
+    return render(request, 'my_store_orders.html',{
+        'orders':orders,
+        'products':products,
+
+    })
+
+
+def create_order(request, s_id):
+    store = Store.objects.get(pk=s_id)
+    products = Product.objects.filter(store=store)
+    # problem: in forms, products of all stores are coming, instead need only that store's products
+    if request.method == 'POST':
+        order_form = forms.OrderCreationFormUser(request.POST or None, request.FILES or None)
+
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
+            order.store = store
+            order.save()
+            return redirect('/stores/my-store/')
+
+    else:
+        order_form = forms.OrderCreationFormUser(request.POST or None, request.FILES or None)
+
+    return render(request, 'create_order.html', {
+        'order_form':order_form,
+        'store':store,
+        'products':products,
+
+    })
+

@@ -1,0 +1,49 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+<h2>Create Order: </h2> <br><br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <form  method="post" enctype=
+            "multipart/form-data">
+    {% csrf_token %}
+
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col"> {{ order_form.product.label_tag}}</th>
+            <th scope="col"> {{ order_form.product}}</th>
+        </tr>
+
+        <tr>
+            <th scope="col"> {{ order_form.quantity.label_tag}}</th>
+            <th scope="col"> {{ order_form.quantity }}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ order_form.date.label_tag}}</th>
+            <th scope="col"> {{ order_form.date}}</th>
+        </tr>
+
+        </thead>
+
+    </table>
+
+
+<button class="btn btn-primary" type="submit">Create</button>
+</form>
+
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

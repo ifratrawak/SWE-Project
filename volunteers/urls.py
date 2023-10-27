@@ -5,4 +5,8 @@ from . import views
 
 urlpatterns=[
     path('volunteer-reg/', views.volunteer_reg, name = 'volunteer-reg'),
+    path('volunteer-profile-update/<int:v_id>', views.volunteer_update, name = 'volunteer-profile-update'),
+    path('volunteer-profile/', views.volunteer_profile, name='volunteer-profile'),
+
+    path('volunteer-orders/<int:s_id><int:v_id>', views.volunteer_orders, name='volunteer-orders'),
 ]

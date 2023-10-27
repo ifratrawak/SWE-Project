@@ -1,0 +1,50 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Orders Page</h1>
+                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <br><br>
+                    <a href="{% url 'create-order' products.store.id  %}"><h3>Create an Order</h3></a>
+                </div>
+            </div>
+        </header>
+    {% for o in orders %}
+        {% if o.product.store.owner == request.user %}
+            <div class="text-center my-3">
+
+{#                    <a href="{% url 'create-order' o.product.store.id %}"><h3>Create an Order</h3></a>#}
+                </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <!-- Blog post-->
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="{{ o.product.image.url }}" alt="..."></a>
+                                <div class="card-body">
+                                    <div class="small text-muted">{{ o.date }}</div>
+                                    <h2 class="card-title h4">{{ o.product.name }}</h2>
+                                    <p class="card-text">Category: {{ o.product.category }}</p>
+                                    <p class="card-text">Description: {{ o.product.description }}</p>
+                                    <p class="card-text">Quantity Available: {{ o.product.quantity }}</p>
+                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}
+
+</body>
+</html>
