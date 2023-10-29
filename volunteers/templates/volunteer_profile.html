@@ -9,6 +9,9 @@
 <body>
 
 {% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static "css/volunteer_profile.css" %}">
 <header class="py-5 bg-dark text-white border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
@@ -23,46 +26,78 @@
 
             {% if v.volunteer == request.user %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-10">
-            <h1 class="fw-bold text-center">{{ v.volunteer.username }}'s Volunteer Profile</h1>
-        </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-10">
+                            <h1 class="fw-bold text-center">{{ v.volunteer.username }}'s Volunteer Profile</h1>
+                        </div>
 
 
-    <div class="col-lg-10">
-                <br><br><br>
-        <table class="table">
-         <thead>
-            <tr>
-            <th scope="col"><h4>Username: </h4></th>
-            <th scope="col"><h4>{{ v.volunteer.username }}</h4></th>
-            </tr>
+                    <div class="col-lg-10">
+                                <br><br><br>
+                        <table class="table">
+                         <thead>
+                            <tr>
+                            <th scope="col"><h4>Username: </h4></th>
+                            <th scope="col"><h4>{{ v.volunteer.username }}</h4></th>
+                            </tr>
 
-            <tr>
-                <th scope="col"><h4>Store Volunteering for: </h4></th>
-                <th scope="col"><h4>{{ v.store }}</h4></th>
-            </tr>
+                            <tr>
+                                <th scope="col"><h4>Store Volunteering for: </h4></th>
+                                <th scope="col"><h4>{{ v.store }}</h4></th>
+                            </tr>
 
-            <tr>
-                <th scope="col"><h4>Availability Status: </h4></th>
-                <th scope="col"><h4>{{ v.is_available }}</h4></th>
-            </tr>
-
-
-         </thead>
-
-         </table>
-        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-profile-update' v.id %}">Update Profile</a></p>
-        <br>
-        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-orders' v.store.id v.id %}">Request to volunteer Order</a></p>
-    </div>
+                            <tr>
+                                <th scope="col"><h4>Availability Status: </h4></th>
+                                <th scope="col"><h4>{{ v.is_available }}</h4></th>
+                            </tr>
 
 
-  </div>
-</div>
+                         </thead>
+
+                         </table>
+                        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-profile-update' v.id %}">Update Profile</a></p>
+                        <br>
+                        <p class="lead mb-0" style="font-weight: bold"><a href="{% url 'volunteer-orders' v.store.id v.id %}">Request to volunteer Order</a></p>
+                    </div>
+
+
+                  </div>
+                </div>
+
+            {% else %}
+{#            <header class="masthead">#}
+{#            <div class="container position-relative">#}
+{#                <div class="row justify-content-center">#}
+{#                    <div class="col-xl-6">#}
+{#                        <div class="text-center ">#}
+{#                            <!-- Page heading-->#}
+{#                            <h1 class="mb-5">You are not registered as a volunteer!</h1>#}
+{#                            <!-- Signup form-->#}
+{#                            <!-- * * * * * * * * * * * * * * *-->#}
+{#                            <!-- * * SB Forms Contact Form * *-->#}
+{#                            <!-- * * * * * * * * * * * * * * *-->#}
+{#                            <!-- This form is pre-integrated with SB Forms.-->#}
+{#                            <!-- To make this form functional, sign up at-->#}
+{#                            <!-- https://startbootstrap.com/solution/contact-forms-->#}
+{#                            <!-- to get an API token!-->#}
+{#                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">#}
+{#                                #}
+{#                                <div class="row">#}
+{##}
+{#                                    <div class="col-auto"><a class="btn btn-primary btn-lg " href="{% url 'volunteer-reg' %}" id="submitButton">Register as a Volunteer</a></div>#}
+{#                                </div>#}
+{##}
+{#                            </form>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </header>#}
+
+
             {% endif %}
-{% endif %}
+    {% endif %}
 {% endfor %}
 
 {% endblock %}

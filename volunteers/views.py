@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from stores.models import Order, Product
 from volunteers.forms import VolunteerRegForm
 from . import forms
-from .models import Volunteer
+from .models import Volunteer, VolunteerRequest
 
 
 # Create your views here.
@@ -68,4 +68,23 @@ def volunteer_orders(request, s_id, v_id):
     return render(request, 'volunteer_orders.html',{
         'orders': orders,
         'volunteer':volunteer
+    })
+
+def volunteer_request_order(request, v_id, o_id):
+    requester = VolunteerRequest.objects.all()
+    order = Order.objects.get(pk=o_id)
+    if request.method == 'POST':
+        req_form = forms.VolunteerRequestFormUser(request.POST or None)
+
+        if req_form.is_valid():
+            form = req_form.save(commit=False)
+            form.requester = request.user
+            form.save()
+
+            return redirect('/volunteers/volunteer-profile/')
+    else:
+        req_form = forms.VolunteerRequestFormUser()
+    return render(request, 'volunteer_request_order.html', {
+        'requester':requester,
+        'req_form':req_form
     })

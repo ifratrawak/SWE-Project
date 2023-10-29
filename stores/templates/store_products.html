@@ -1,0 +1,80 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">{{ store.name }}</h1>
+                    <h4 class="fw-bolder">Products Page</h4>
+                    <br><br>
+                     <img src="{{ store.store_img.url }}" alt="..." height="200px" width="300px"/>
+                    <br><br>
+                    <p class="lead mb-0">All the Products of this Store are viewed in this page</p>
+                    <br><br>
+                </div>
+            </div>
+</header>
+
+
+{% for p in products %}
+
+                    {% if store == p.store %}
+            <section class="py-3">
+                <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{{ p.image.url }}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ p.name }}</h5>
+                                    <!-- Product price-->
+                                </div>
+                                <br><br>{{p.description}}
+
+                            </div>
+{#                            <div class="card-body p-4">#}
+{#                                <h4>From: {{ p.store.name }}</h4>#}
+{#                            </div>#}
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            </section>
+        {% endif %}
+    {% endfor %}
+
+<footer class="footer py-4 bg-light text-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; MealsMatter 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                       <h5 class="text-light"><a class="link-white text-decoration-none me-5" href="#!">Privacy Policy</a></h5>
+                        <h5 class="text-light"><a class="link-dark text-decoration-none" href="#!">Terms of Use</a></h5>
+                    </div>
+                </div>
+            </div>
+</footer>
+{% endblock %}
+</body>
+</html>

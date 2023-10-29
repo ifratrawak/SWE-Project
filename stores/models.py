@@ -53,4 +53,4 @@ class Order(models.Model):
 
 
     def __str__(self):
-        return self.product.name
+        return self.product.name + '-> ' + self.product.store.name

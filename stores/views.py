@@ -247,3 +247,10 @@ def create_order(request, s_id):
 
     })
 
+def store_products(request, s_id):
+    store = Store.objects.get(pk=s_id)
+    products = Product.objects.all()
+    return render(request, 'store_products.html',{
+        'store':store,
+        'products':products
+    })

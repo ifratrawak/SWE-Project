@@ -1,6 +1,6 @@
 from django import forms
 
-from volunteers.models import Volunteer
+from volunteers.models import Volunteer, VolunteerRequest
 
 
 class VolunteerRegForm(forms.ModelForm):
@@ -28,4 +28,11 @@ class VolunteerUpdFormUser(forms.ModelForm):
         fields = [
             'is_available',
             'store'
+        ]
+
+class VolunteerRequestFormUser(forms.ModelForm):
+    class Meta:
+        model = VolunteerRequest
+        fields = [
+            'order'
         ]

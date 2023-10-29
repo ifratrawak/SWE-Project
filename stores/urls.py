@@ -15,6 +15,8 @@ urlpatterns = [
     path('all-stores/', views.all_stores, name="all-stores"),
     path('my-store/', views.my_store, name='my-store'),
 
+    path('store-products/<int:s_id>', views.store_products , name = 'store-products'),
+
     path('view-products/', views.all_products, name='all-products'),
     path('add-product/<int:s_id>', views.add_product, name='add-product'),
     path('upd-product/<int:s_id><int:p_id>', views.upd_product, name='upd-product'),

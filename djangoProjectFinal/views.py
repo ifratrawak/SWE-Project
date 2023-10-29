@@ -7,7 +7,7 @@ from stores.models import Store
 def home(request):
 
     return render(request, 'home.html', {
-
+        'rawak_fb': 'https://www.facebook.com/ifrattanzeef.rawak/'
     })
 
 def nav1(request):
@@ -15,4 +15,5 @@ def nav1(request):
     return render(request, 'nav1.html',{
 
     })
+
 
