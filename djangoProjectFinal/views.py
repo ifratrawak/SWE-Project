@@ -17,3 +17,8 @@ def nav1(request):
     })
 
 
+def about(request):
+
+    return render(request, 'about.html',{
+
+    })
