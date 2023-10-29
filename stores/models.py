@@ -42,7 +42,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images/products/')
 
     def __str__(self):
-        return self.name
+        return self.name +'    ID:' + str(self.id)
 
 # product orders
 class Order(models.Model):

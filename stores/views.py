@@ -26,7 +26,7 @@ def create_store(request):
             if form.is_valid():
                 form.save()
 
-                return redirect('/stores/view-shops/')
+                return redirect('/stores/my-store/')
         else:
             form = forms.ShopCreationFormUser(request.POST, request.FILES)
 
@@ -35,7 +35,7 @@ def create_store(request):
                 store.owner = request.user  # logged in user made manager
                 store.save()
 
-                return redirect('/stores/view-shops/')
+                return redirect('/stores/my-store/')
 
     else:
         # just going to page, not submitting
