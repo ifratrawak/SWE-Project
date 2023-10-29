@@ -19,13 +19,24 @@
 
             </div>
         </section>
-    <h1>Products:</h1>
-    <br><br>
+
+
 {#    <h3><a href="{% url 'add-product' %}">Add Products </a></h3>#}
     {% for s in store %}
 
         {% if s.owner == request.user %}
-            <h3><a href="{% url 'add-product' s.id %}">Add Products </a></h3>
+            <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="section-heading text-uppercase"><a href="{% url 'add-product' s.id %}">Add Products</a></h1>
+
+                    <br>
+                </div>
+
+
+            </div>
+        </section>
+
             {% for p in product %}
                 {% if p.store == s %}
 

@@ -43,25 +43,37 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'volunteer-profile' %}">Volunteer Profile</a>
       </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'all-stores' %}">Stores</a>
-      </li>
 
-        <li class="nav-item">
-        <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
-      </li>
+
 
         {% if user.is_authenticated %}
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'create-store' %}">Create Store</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'my-store' %}">View My Store</a>
-        </li>
+
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Stores
+            </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'create-store' %}">Create Store</a>
+          <a class="dropdown-item" href="{% url 'my-store' %}">View My Store</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'all-stores' %}">View All Stores</a>
+
+            </div>
+            </li>
+
          {% else %}
-          <li class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">Create Store</a>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Stores
+            </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'login' %}">Create Store</a>
+          <a class="dropdown-item" href="{% url 'login' %}">View My Store</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'all-stores' %}">View All Stores</a>
+
+            </div>
+            </li>
 
         {% endif %}
         <li class="nav-item">
@@ -72,27 +84,30 @@
         <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
 
+        <li class="nav-item">
+        <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin</a>
+      </li>
     </ul>
       <ul class="navbar-nav mr-right">
 
           {% if user.is_authenticated %}
 
 
-          <li class="mr-3">
-              <a  href="" class="btn btn-primary">{{ user }}</a>
-          </li>
+{#          <li class="mr-3">#}
+{#              <a  href="" class="btn btn-primary">{{ user }}</a>#}
+{#          </li>#}
               <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Profile
-        </a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ user }}
+            </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'edit-profile' request.user.profile.id %}">Update Profile Info</a>
           <a class="dropdown-item" href="{% url 'update-profile' %}">Update Profile Settings</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'profile' request.user.id %}">View Profile</a>
 
-        </div>
-      </li>
+            </div>
+            </li>
 
 {#          <li class="mr-3">#}
 {#              <a href="{% url 'profile' request.user.id %}" class="btn btn-outline-danger">Profile</a>#}
