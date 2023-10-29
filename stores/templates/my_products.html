@@ -8,15 +8,13 @@
 <body>
 
 {% block content %}
-<section class="page-section bg-light" id="portfolio">
+        <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h1 class="section-heading text-uppercase">Products</h1>
                     <h3 class="section-subheading text-muted">All the products registered in your Store </h3>
                     <br>
                 </div>
-
-
             </div>
         </section>
 
@@ -29,13 +27,10 @@
             <div class="container">
                 <div class="text-center">
                     <h1 class="section-heading text-uppercase"><a href="{% url 'add-product' s.id %}">Add Products</a></h1>
-
                     <br>
                 </div>
-
-
-            </div>
-        </section>
+                </div>
+            </section>
 
             {% for p in product %}
                 {% if p.store == s %}
