@@ -12,12 +12,25 @@
     <link rel="stylesheet" type="text/css"
           href="{% static "become_donor.css" %}">
 
-<div class="introbox">
-Become a Doner!<br>
-</div>
+{#<div class="introbox">#}
+{#Become a Doner!<br>#}
+{#</div>#}
 {#    <a class="doner" href="">Click here to Sign up as a Doner</a><br>#}
 {#    <a class="doner" href="">Click here to Donate $</a><br>#}
-<div class="buttonbox">
+
+    <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="section-heading text-uppercase">Become a Donor</h1>
+                    <h4 class="section-subheading text-muted">Donate Food or Donate some funds! </h4>
+                    <br>
+                </div>
+
+            </div>
+        </section>
+
+    <div class="buttonbox">
+
     <!-- Button trigger modal -->
 <a href="{% url 'food-donation' %}"> <button type="button" class="btn btn-primary" >
   Donate Food
