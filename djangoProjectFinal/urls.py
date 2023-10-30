@@ -30,6 +30,7 @@ urlpatterns = [
     path('stores/', include('stores.urls')),
     path('volunteers/', include('volunteers.urls')),
 
+    path('about/', views.about, name='about'),
     path('nav1/', views.nav1, name="nav1"),
 
 

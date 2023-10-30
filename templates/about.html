@@ -1,0 +1,266 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static "css/about.css" %}">
+
+
+
+    <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">MealsMatter</span></h1>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+                        <!-- About Section-->
+                        <section>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">About MealsMatter</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+
+                            </div>
+
+                            <!-- Our Mission-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">2022 - Present</div>
+                                                <div class="small fw-bolder">Donating Food</div>
+                                                <div class="small text-muted">Whole Bangladesh</div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>"MealsMatter" is not just an organization; it's a movement, a community of kind-hearted individuals dedicated to alleviating hunger and making the world a better place. <br> At MealsMatter, we believe that every meal has the potential to change lives and brighten futures.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">Our Mission</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-primary fw-bolder mb-2">2017 - 2019</div>#}
+{#                                                <div class="small fw-bolder">SEM Specialist</div>#}
+{#                                                <div class="small text-muted">Wayne Enterprises</div>#}
+{#                                                <div class="small text-muted">Gotham City, NY</div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+                                        <div class="col-lg-12"><div>Our mission is simple yet profound: To connect those with an abundance of food or resources to those who are in need. We aim to bridge the gap between plenty and scarcity, ensuring that no one in our community goes to bed hungry.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+{#                        <!-- Education Section-->#}
+{#                        <section>#}
+{#                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>#}
+{#                            <!-- Education Card 1-->#}
+{#                            <div class="card shadow border-0 rounded-4 mb-5">#}
+{#                                <div class="card-body p-5">#}
+{#                                    <div class="row align-items-center gx-5">#}
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-secondary fw-bolder mb-2">2015 - 2017</div>#}
+{#                                                <div class="mb-2">#}
+{#                                                    <div class="small fw-bolder">Barnett College</div>#}
+{#                                                    <div class="small text-muted">Fairfield, NY</div>#}
+{#                                                </div>#}
+{#                                                <div class="fst-italic">#}
+{#                                                    <div class="small text-muted">Master's</div>#}
+{#                                                    <div class="small text-muted">Web Development</div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <!-- Education Card 2-->#}
+{#                            <div class="card shadow border-0 rounded-4 mb-5">#}
+{#                                <div class="card-body p-5">#}
+{#                                    <div class="row align-items-center gx-5">#}
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-secondary fw-bolder mb-2">2011 - 2015</div>#}
+{#                                                <div class="mb-2">#}
+{#                                                    <div class="small fw-bolder">ULA</div>#}
+{#                                                    <div class="small text-muted">Los Angeles, CA</div>#}
+{#                                                </div>#}
+{#                                                <div class="fst-italic">#}
+{#                                                    <div class="small text-muted">Undergraduate</div>#}
+{#                                                    <div class="small text-muted">Computer Science</div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </section>#}
+                        <!-- Divider-->
+                        <div class="pb-5"></div>
+                        <!-- Skills Section-->
+                        <section>
+                            <!-- Skillset Card-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <!-- Professional skills list-->
+                                    <div class="mb-5">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
+                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">How MealsMatter Works</span></h3>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Sign Up and Join Our Community</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100 text-center">Donate Food</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100 text-center">Our Volunteers</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Supporting Local Communities</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Transparency and Accountability</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">User Friendly Interface </div></div>
+                                        </div>
+                                    </div>
+                                    <!-- Languages list-->
+{#                                    <div class="mb-0">#}
+{#                                        <div class="d-flex align-items-center mb-4">#}
+{#                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>#}
+{#                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>#}
+{#                                        </div>#}
+{#                                        <div class="row row-cols-1 row-cols-md-3 mb-4">#}
+{#                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>#}
+{#                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>#}
+{#                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>#}
+{#                                        </div>#}
+{#                                        <div class="row row-cols-1 row-cols-md-3">#}
+{#                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>#}
+{#                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>#}
+{#                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">The Impact of MealsMatter</h2>
+
+                            </div>
+
+                            <!-- The Impact of MealsMatter-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-primary fw-bolder mb-2">2019 - Present</div>#}
+{#                                                <div class="small fw-bolder">Web Developer</div>#}
+{#                                                <div class="small text-muted">Stark Industries</div>#}
+{#                                                <div class="small text-muted">Los Angeles, CA</div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+                                        <div class="col-lg-12"><div>The impact of MealsMatter is not just about providing food; it's about nourishing hope, creating smiles, and fostering a sense of togetherness in our communities. Our donors and volunteers have been instrumental in helping us achieve the following: <br> <br>*Feeding families who would otherwise go to bed hungry. <br>*Reducing food waste by channeling excess food to those who need it. <br>*Strengthening the bonds within our communities. <br>*Encouraging others to join the cause and create a ripple effect of kindness.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">Join the MealsMatter Movement</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-primary fw-bolder mb-2">2017 - 2019</div>#}
+{#                                                <div class="small fw-bolder">SEM Specialist</div>#}
+{#                                                <div class="small text-muted">Wayne Enterprises</div>#}
+{#                                                <div class="small text-muted">Gotham City, NY</div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+                                        <div class="col-lg-12"><div>
+                                            At MealsMatter, we know that small actions can lead to significant change. We invite you to be a part of this movement to create a world where no one has to worry about their next meal. Here's how you can get involved: <br><br>
+                                            1. Donate Food: If you have excess food, consider donating it to us. Your extra groceries can become someone else's lifeline. <br>
+                                            2. Donate Money: Every penny counts. Your financial contributions help us operate efficiently and support even more families. <br>
+                                            3. Volunteer: Join our team of volunteers and be a direct force for good in your community. <br>
+                                            4. Spread the Word: Share the MealsMatter story with your friends and family. Encourage them to join our cause. <br>
+                                            5. Join Us Online: Stay connected with us through our website and social media channels to stay updated on our activities and impact. <br><br>
+                                            Together, we can make a difference. Together, we can turn meals into moments of hope, love, and transformation. <br><br>
+                                            Join MealsMatter today and be a part of something truly meaningful.
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">Conclusion</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+{#                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">#}
+{#                                            <div class="bg-light p-4 rounded-4">#}
+{#                                                <div class="text-primary fw-bolder mb-2">2017 - 2019</div>#}
+{#                                                <div class="small fw-bolder">SEM Specialist</div>#}
+{#                                                <div class="small text-muted">Wayne Enterprises</div>#}
+{#                                                <div class="small text-muted">Gotham City, NY</div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+                                        <div class="col-lg-12"><div>
+                                            MealsMatter is more than just a food donation organization. It's a reminder that we all have the power to change lives and create a better world. We invite you to be a part of this mission, to be the change you wish to see.
+                                            <br>Together, we can make every meal matter. <br> <br>Join MealsMatter today, and let's nourish communities, one meal at a time.
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+    <footer class="footer py-4 bg-light text-dark">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; MealsMatter 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                       <h5 class="text-light"><a class="link-white text-decoration-none me-5" href="#!">Privacy Policy</a></h5>
+                        <h5 class="text-light"><a class="link-dark text-decoration-none" href="#!">Terms of Use</a></h5>
+                    </div>
+                </div>
+            </div>
+</footer>
+{% endblock %}
+</body>
+</html>

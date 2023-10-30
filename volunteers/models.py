@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from stores.models import Store
+from stores.models import Store, Order
 
 # Create your models here.
 
@@ -20,5 +20,11 @@ class Volunteer(models.Model):
     store=models.ForeignKey(Store,default=None,on_delete=models.CASCADE)
     is_available=models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.volunteer.username
+class VolunteerRequest(models.Model):
+    requester = models.ForeignKey(Volunteer, default=None, on_delete=models.CASCADE)
+    order = models.OneToOneField(Order, default=None, on_delete=models.CASCADE)
 
-
+    def __str__(self):
+        return self.requester.volunteer.username + ' -> ' + self.order.product.name
