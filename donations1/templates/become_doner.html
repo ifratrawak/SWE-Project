@@ -1,0 +1,97 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css"
+          href="{% static "become_donor.css" %}">
+
+<div class="introbox">
+Become a Doner!<br>
+</div>
+{#    <a class="doner" href="">Click here to Sign up as a Doner</a><br>#}
+{#    <a class="doner" href="">Click here to Donate $</a><br>#}
+<div class="buttonbox">
+    <!-- Button trigger modal -->
+<a href="{% url 'food-donation' %}"> <button type="button" class="btn btn-primary" >
+  Donate Food
+</button></a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel1">Doner Registration</h1>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      </div>
+      <div class="modal-body">
+        <p>Fill out Some info's for us:</p>
+   <form>
+    <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone"  placeholder="Enter phone">
+    </div>
+
+    <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address"  placeholder="Enter address">
+    </div>
+
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+       <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+  Click here to Donate $
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Donate $</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Donate by Card / Bkash / Nagad</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
+
+</body>
+</html>

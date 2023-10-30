@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'stores',
     'accounts',
     'donations',
+    'donations1',
     'volunteers',
 
     'django.contrib.admin',

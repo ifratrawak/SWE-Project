@@ -1,0 +1,49 @@
+{% extends 'navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    <form  method="post" enctype=
+            "multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-striped">
+        <thead>
+{#        <tr>#}
+{#            <th scope="col"> {{ vol_form.user.label_tag}}</th>#}
+{#            <th scope="col"> {{ vol_form.user}}</th>#}
+{#        </tr>#}
+
+        <tr>
+            <th scope="col"> {{ don_form.food_name.label_tag}}</th>
+            <th scope="col"> {{ don_form.food_name}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ don_form.category.label_tag}}</th>
+            <th scope="col"> {{ don_form.category}}</th>
+        </tr>
+        <tr>
+            <th scope="col"> {{ don_form.donation_date.label_tag}}</th>
+            <th scope="col"> {{ don_form.donation_date}}</th>
+        </tr>
+
+
+        </thead>
+
+    </table>
+
+
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
